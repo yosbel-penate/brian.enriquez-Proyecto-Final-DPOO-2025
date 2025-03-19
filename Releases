@@ -1,1 +1,14 @@
+//Diagramas de clase del proyecto(puede cambiar durante el desarrollo)
+class Game {
+    - ItemList: string[]
+    - GameStatus: string
+    + Game(CharacterList: string[], GameStatus: string)
+    + getGameStatus(): string
+    + setGameStatus(GameStatus: string): void
+    + getItemList(): string[]
+    + StatusCalculation(GameStatus: string): string
+    + PlayingCharacterList(): string[]
+    + EnemyTurn(CharacterList: string[])
+    + Turn(CharacterList: string[])
+}
 
