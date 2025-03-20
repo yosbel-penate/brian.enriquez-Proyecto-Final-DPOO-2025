@@ -11,4 +11,15 @@ class Game {
     + EnemyTurn(CharacterList: string[])
     + Turn(CharacterList: string[])
 }
-
+class Bonus {
+    - BonusDescription: String
+    + Bonus()
+    + Bonus(parameter, BonusDescription: String, Position: Item, name: Item)
+    + getBonusDescription(): String
+    + setBonusDescription(BonusDescription: String): void
+    + Repeat action(): void
+    + addHP(): void
+    + Increase damage(): void
+    + Increase movement rank(): void
+    + Increase skill power(): void
+}
