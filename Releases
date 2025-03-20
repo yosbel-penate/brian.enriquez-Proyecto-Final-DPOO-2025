@@ -12,3 +12,18 @@ class Game {
     + Turn(CharacterList: string[])
 }
 
+class Puzzle {
+    - Question: String
+    - Question Description: String
+    + Puzzle()
+    + Puzzle(parameter, Question: String, Question Description: String, String, Name: Item, Position: Item)
+    + getQuestion(): String
+    + setQuestion(Question: String): void
+    + getQuestionDescription(): String
+    + setQuestionDescription(Question Description: String): void
+    + Make Question(Question: String, Question Description: String): boolean
+}
+
+
+
+
