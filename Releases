@@ -1,4 +1,5 @@
 //Diagramas de clase del proyecto(puede cambiar durante el desarrollo)
+@startuml
 class Game {
     - ItemList: string[]
     - GameStatus: string
@@ -62,16 +63,16 @@ class Bonus {
     + Increase movement rank(): void
     + Increase skill power(): void
 }
-@startuml
+
 class Map {
     - Row_size: int
     - Column_size: int
     + Map()
     + Map(Row_size: int, Column_size: int)
 }
-@enduml
 
-@startuml
+
+
 class Position {
     - Row: int
     - Column: int
@@ -82,35 +83,35 @@ class Position {
     + getColumn(): int
     + setColumn(Column: int): void
 }
-@enduml
 
-@startuml
+
+
 class Obstacle {
     + OccupatePosition(): boolean
 }
-@enduml
 
-@startuml
+
+
 interface Skill extends Action {
     + Activating Skill(Action RankS: Character): Character
 }
-@enduml
 
-@startuml
+
+
 interface Action { }
-@enduml
 
-@startuml
+
+
 interface Attack extends Action {
     + Attacking(Action Rank: Character): Character
 }
-@enduml
 
-@startuml
+
+
 interface Move extends Action {
     + Moving(Move Rank: Character): Character
 }
-@enduml
+
 
 class Puzzle {
     - Question: String
@@ -124,4 +125,10 @@ class Puzzle {
     + Make Question(Question: String, Question Description: String): boolean
 }
 
+Map -- Game : Generate
+Position -- Item : Uses
+Game "6..*" -- Item : Uses
+
+
+@enduml
 
