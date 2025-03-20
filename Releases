@@ -11,4 +11,11 @@ class Game {
     + EnemyTurn(CharacterList: string[])
     + Turn(CharacterList: string[])
 }
-
+class Item {
+    - name: String
+    - position: Position
+    + Item()
+    + Item(name: String, position: Position)
+    + getPosition(): Position
+    + getName(): string
+}
