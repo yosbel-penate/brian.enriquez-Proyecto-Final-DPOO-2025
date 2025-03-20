@@ -62,3 +62,52 @@ class Bonus {
     + Increase movement rank(): void
     + Increase skill power(): void
 }
+@startuml
+class Map {
+    - Row_size: int
+    - Column_size: int
+    + Map()
+    + Map(Row_size: int, Column_size: int)
+}
+@enduml
+
+@startuml
+class Position {
+    - Row: int
+    - Column: int
+    + Position()
+    + Position(Row: int, Column: int)
+    + getRow(): int
+    + setRow(Row: int): void
+    + getColumn(): int
+    + setColumn(Column: int): void
+}
+@enduml
+
+@startuml
+class Obstacle {
+    + OccupatePosition(): boolean
+}
+@enduml
+
+@startuml
+interface Skill extends Action {
+    + Activating Skill(Action RankS: Character): Character
+}
+@enduml
+
+@startuml
+interface Action { }
+@enduml
+
+@startuml
+interface Attack extends Action {
+    + Attacking(Action Rank: Character): Character
+}
+@enduml
+
+@startuml
+interface Move extends Action {
+    + Moving(Move Rank: Character): Character
+}
+@enduml
