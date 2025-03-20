@@ -12,3 +12,33 @@ class Game {
     + Turn(CharacterList: string[])
 }
 
+class Character {
+    - Health points: int
+    - damage: int
+    - resistance: int
+    - Action Rank: int
+    - damageS: int
+    - damageC: float
+    - Name: String
+    - Action RankS: int
+    - Move Rank: int
+    + Character(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
+    + getHealthPoints(): int
+    + setHealthPoints(Health points: int): void
+    + getDamage(): int
+    + setDamage(damage: int): void
+    + getResistance(): int
+    + setResistance(resistance: int): void
+    + getActionRank(): int
+    + setActionRank(Action Rank: int): void
+    + getDamageS(): int
+    + setDamageS(damageS: int): void
+    + getDamageC(): float
+    + setDamageC(damageC: float): void
+    + getName(): String
+    + setName(Name: String): void
+    + getActionRankS(): int
+    + setActionRankS(Action RankS: int): void
+    + getMoveRank(): int
+    + setMoveRank(Move Rank: int): void
+}
