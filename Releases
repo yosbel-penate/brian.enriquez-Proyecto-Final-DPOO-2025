@@ -129,17 +129,6 @@ Map -- Game : Generate
 Position -- Item : Uses
 Game "6..*" -- Item : Uses
 
-Bonus --|> Item
-Obstacle --|> Item
-Puzzle --|> Item
-Character --|> Item
 
-Skill --|> Action
-Move --|> Action
-Attack --|> Action
-
-Character --|> Attack
-Character --|> Move
-Character --|> Skill
 @enduml
 
