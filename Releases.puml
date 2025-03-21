@@ -45,13 +45,24 @@ class Character {
 }
 
 class Hero {
-    - name: String
-    - actionRange: int
-    - damage: int
-    - ability: String
+    # name: String
+    # actionRange: int
+    # damage: int
+    # ability: String
     - properties: String
     + Hero(name: String, actionRange: int, damage: int, ability: String, properties: String)
     + attack(): void
+    + useAbility(): void
+}
+class Enemy {
+    # name: String
+    # actionRange: int
+    # damage: int
+    # Skill: String
+    # properties: String
+    + Enemy()
+    + Enemy(name: String,actionRange: int,damage: int,properties: String)
+    +  attack(): void
     + useAbility(): void
 }
 
