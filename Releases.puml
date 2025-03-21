@@ -43,6 +43,18 @@ class Character {
     + getMoveRank(): int
     + setMoveRank(Move Rank: int): void
 }
+
+class Hero {
+    - name: String
+    - actionRange: int
+    - damage: int
+    - ability: String
+    - properties: String
+    + Hero(name: String, actionRange: int, damage: int, ability: String, properties: String)
+    + attack(): void
+    + useAbility(): void
+}
+
 class Item {
     - name: String
     - position: Position
