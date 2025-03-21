@@ -50,6 +50,7 @@ class Hero {
     # damage: int
     # ability: String
     - properties: String
+    + Hero()
     + Hero(name: String, actionRange: int, damage: int, ability: String, properties: String)
     + attack(): void
     + useAbility(): void
