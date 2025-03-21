@@ -67,6 +67,35 @@ class Enemy {
     + useAbility(): void
 }
 
+
+class LanceLettuce {
+    - resistance: int
+    + LanceLettuce()
+    + LanceLettuce(name: String, actionRange: int, damage: int, properties: String, resistance: int)
+    + pushEnemies(): void
+}
+
+class CarrotShooter {
+    + CarrotShooter()
+    + CarrotShooter(name: String, actionRange: int, damage: int, properties: String)
+    + shootCarrotArrows(): void
+}
+
+class BomberTomato {
+    - selfDamage: int
+    + BomberTomato()
+    + BomberTomato(name: String, actionRange: int, damage: int, properties: String, selfDamage: int)
+    + acidExplosion(): void
+}
+
+class CucumberShadow {
+    + CucumberShadow()
+    + CucumberShadow(name: String, actionRange: int, damage: int, properties: String)
+    + moveStealthily(): void
+}
+
+
+
 class Item {
     - name: String
     - position: Position
