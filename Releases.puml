@@ -94,7 +94,43 @@ class CucumberShadow {
     + moveStealthily(): void
 }
 
+class BroccoliSage {
+    + BroccoliSage()
+    + BroccoliSage(name: String, actionRange: int, damage: int, properties: String)
+    + healAllies(): void
+}
 
+class MutantLettuce {
+    - healthRegeneration: int
+    + MutantLettuce()
+    + MutantLettuce(name: String, actionRange: int, damage: int, properties: String, healthRegeneration: int)
+    + regenerateHealth(): void
+}
+
+class GiantSlug {
+    + GigantSlug()
+    + GigantSlug(name: String, actionRange: int, damage: int, properties: String)
+    + slowCharacters(): void
+}
+
+class KillerBee {
+    - poisonDamage: int
+    + KillerBee()
+    + KillerBee(name: String, actionRange: int, damage: int, properties: String, poisonDamage: int)
+    + applyPoison(): void
+}
+
+class MoleDigger {
+    + MoleDigger()
+    + MoleDigger(name: String, actionRange: int, damage: int, properties: String)
+    + dig(): void
+}
+
+class ToxicMushroom {
+    + ToxicMushroom()
+    + ToxicMushroom(name: String, actionRange: int, damage: int, properties: String)
+    + explodeOnDeath(): void
+}
 
 class Item {
     - name: String
