@@ -99,6 +99,40 @@ class BroccoliSage {
     + BroccoliSage(name: String, actionRange: int, damage: int, properties: String)
     + healAllies(): void
 }
+class PumpkinShield {
+    - DamageAbsortion:int
+    + PumpkinShield()
+    + PumpkinShield(name: String, actionRange: int, damage: int, properties: String, absortion: int)
+    + ShieldDefense(): void
+}
+
+class BerserkSpinach {
+    - AugmentDamage: int
+    + BerserkSpinach()
+    + BerserkSpinach(name: String, actionRange: int, damage: int, properties: String, augmentation: int)
+    + FrenzyHit(): void
+}
+
+class RadishSprinter {
+    - MoveDouble: int
+    + RadishSprinter()
+    + RadishSprinter(name: String, actionRange: int, damage: int, properties: String, movement: int)
+    + MoveFast(): void
+}
+
+class GarlickWarlock {
+    - poisoning: int
+    + GarlickWarlock()
+    + GarlickWarlock(name: String, actionRange: int, damage: int, properties: String, poisoning: int)
+    + PoisonousGas(): void
+}
+
+class CornSniper {
+    - CriticalAttack: int
+    + CornSniper()
+    + LanceLettuce(name: String, actionRange: int, damage: int, properties: String, critical: int)
+    + GrainShot(): void
+}
 
 class MutantLettuce {
     - healthRegeneration: int
