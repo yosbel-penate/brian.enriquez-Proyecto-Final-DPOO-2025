@@ -79,3 +79,56 @@ class InfestedSoil extends Bonus{
      +InfestedSoil()
      +InfestedSoil(BonusDescription: String, Position: Element, name: Element, damage: Character)
      +DecreaseDamage(damage: Character): void
+}
+
+class Puzzle extends Element{
+    - Question: String
+    - Question Description: String
+    + Puzzle()
+    + Puzzle(parameter, Question: String, Question Description: String, String, Name: Element, Position: Element)
+    + getQuestion(): String
+    + setQuestion(Question: String): void
+    + getQuestionDescription(): String
+    + setQuestionDescription(Question Description: String): void
+    + Make Question(Question: String, Question Description: String): boolean
+}
+
+class Obstacle extends Element{
+    + OccupatePosition(): boolean
+}
+
+ abstract class  Character extends Elements implements Action {
+    # Health points: int
+    # damage: int
+    # resistance: int
+    # Action Rank: int
+    # damageS: int
+    # damageC: float
+    # Name: String
+    # Action RankS: int
+    # Move Rank: int
+    + Character(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
+    + getHealthPoints(): int
+    + setHealthPoints(Health points: int): void
+    + getDamage(): int
+    + setDamage(damage: int): void
+    + getResistance(): int
+    + setResistance(resistance: int): void
+    + getActionRank(): int
+    + setActionRank(Action Rank: int): void
+    + getDamageS(): int
+    + setDamageS(damageS: int): void
+    + getDamageC(): float
+    + setDamageC(damageC: float): void
+    + getName(): String
+    + setName(Name: String): void
+    + getActionRankS(): int
+    + setActionRankS(Action RankS: int): void
+    + getMoveRank(): int
+    + setMoveRank(Move Rank: int): void
+}
+
+abstract class  Hero extends Character {
+    + Hero()
+    + Hero(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)  
+}
