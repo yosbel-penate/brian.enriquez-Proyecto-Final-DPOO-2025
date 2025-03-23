@@ -1,190 +1,20 @@
-//Diagramas de clase del proyecto(puede cambiar durante el desarrollo)
+// Diagramas de clases(puede estar sujeto a cambios)
+// ¡¡ATENCIÓN!! lo que se subirá hoy es una optimización y otganización del codigo original
+//ya que logramos acercarnos bastante a la visión definitiva que tenemos por ahora del proyecto,
+//aunque esta puede cambiar durante el desarrollo, no se preveen grandes cambios
+
 @startuml
 class Game {
-    - ItemList: string[]
+    - ElementList: string[]
     - GameStatus: string
     + Game(CharacterList: string[], GameStatus: string)
     + getGameStatus(): string
     + setGameStatus(GameStatus: string): void
-    + getItemList(): string[]
+    + getElementList(): string[]
     + StatusCalculation(GameStatus: string): string
     + PlayingCharacterList(): string[]
     + EnemyTurn(CharacterList: string[])
     + Turn(CharacterList: string[])
-}
-
-class Character {
-    - Health points: int
-    - damage: int
-    - resistance: int
-    - Action Rank: int
-    - damageS: int
-    - damageC: float
-    - Name: String
-    - Action RankS: int
-    - Move Rank: int
-    + Character(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
-    + getHealthPoints(): int
-    + setHealthPoints(Health points: int): void
-    + getDamage(): int
-    + setDamage(damage: int): void
-    + getResistance(): int
-    + setResistance(resistance: int): void
-    + getActionRank(): int
-    + setActionRank(Action Rank: int): void
-    + getDamageS(): int
-    + setDamageS(damageS: int): void
-    + getDamageC(): float
-    + setDamageC(damageC: float): void
-    + getName(): String
-    + setName(Name: String): void
-    + getActionRankS(): int
-    + setActionRankS(Action RankS: int): void
-    + getMoveRank(): int
-    + setMoveRank(Move Rank: int): void
-}
-
-class Hero {
-    # name: String
-    # actionRange: int
-    # damage: int
-    # ability: String
-    - properties: String
-    + Hero()
-    + Hero(name: String, actionRange: int, damage: int, ability: String, properties: String)
-    + attack(): void
-    + useAbility(): void
-}
-class Enemy {
-    # name: String
-    # actionRange: int
-    # damage: int
-    # Skill: String
-    # properties: String
-    + Enemy()
-    + Enemy(name: String,actionRange: int,damage: int,properties: String)
-    +  attack(): void
-    + useAbility(): void
-}
-
-
-class LanceLettuce {
-    - resistance: int
-    + LanceLettuce()
-    + LanceLettuce(name: String, actionRange: int, damage: int, properties: String, resistance: int)
-    + pushEnemies(): void
-}
-
-class CarrotShooter {
-    + CarrotShooter()
-    + CarrotShooter(name: String, actionRange: int, damage: int, properties: String)
-    + shootCarrotArrows(): void
-}
-
-class BomberTomato {
-    - selfDamage: int
-    + BomberTomato()
-    + BomberTomato(name: String, actionRange: int, damage: int, properties: String, selfDamage: int)
-    + acidExplosion(): void
-}
-
-class CucumberShadow {
-    + CucumberShadow()
-    + CucumberShadow(name: String, actionRange: int, damage: int, properties: String)
-    + moveStealthily(): void
-}
-
-class BroccoliSage {
-    + BroccoliSage()
-    + BroccoliSage(name: String, actionRange: int, damage: int, properties: String)
-    + healAllies(): void
-}
-class PumpkinShield {
-    - DamageAbsortion:int
-    + PumpkinShield()
-    + PumpkinShield(name: String, actionRange: int, damage: int, properties: String, absortion: int)
-    + ShieldDefense(): void
-}
-
-class BerserkSpinach {
-    - AugmentDamage: int
-    + BerserkSpinach()
-    + BerserkSpinach(name: String, actionRange: int, damage: int, properties: String, augmentation: int)
-    + FrenzyHit(): void
-}
-
-class RadishSprinter {
-    - MoveDouble: int
-    + RadishSprinter()
-    + RadishSprinter(name: String, actionRange: int, damage: int, properties: String, movement: int)
-    + MoveFast(): void
-}
-
-class GarlickWarlock {
-    - poisoning: int
-    + GarlickWarlock()
-    + GarlickWarlock(name: String, actionRange: int, damage: int, properties: String, poisoning: int)
-    + PoisonousGas(): void
-}
-
-class CornSniper {
-    - CriticalAttack: int
-    + CornSniper()
-    + LanceLettuce(name: String, actionRange: int, damage: int, properties: String, critical: int)
-    + GrainShot(): void
-}
-
-class MutantLettuce {
-    - healthRegeneration: int
-    + MutantLettuce()
-    + MutantLettuce(name: String, actionRange: int, damage: int, properties: String, healthRegeneration: int)
-    + regenerateHealth(): void
-}
-
-class GiantSlug {
-    + GigantSlug()
-    + GigantSlug(name: String, actionRange: int, damage: int, properties: String)
-    + slowCharacters(): void
-}
-
-class KillerBee {
-    - poisonDamage: int
-    + KillerBee()
-    + KillerBee(name: String, actionRange: int, damage: int, properties: String, poisonDamage: int)
-    + applyPoison(): void
-}
-
-class MoleDigger {
-    + MoleDigger()
-    + MoleDigger(name: String, actionRange: int, damage: int, properties: String)
-    + dig(): void
-}
-
-class ToxicMushroom {
-    + ToxicMushroom()
-    + ToxicMushroom(name: String, actionRange: int, damage: int, properties: String)
-    + explodeOnDeath(): void
-}
-
-class Item {
-    - name: String
-    - position: Position
-    + Item()
-    + Item(name: String, position: Position)
-    + getPosition(): Position
-    + getName(): string
-}
-class Bonus {
-    - BonusDescription: String
-    + Bonus()
-    + Bonus(parameter, BonusDescription: String, Position: Item, name: Item)
-    + getBonusDescription(): String
-    + setBonusDescription(BonusDescription: String): void
-    + Repeat action(): void
-    + addHP(): void
-    + Increase damage(): void
-    + Increase movement rank(): void
-    + Increase skill power(): void
 }
 
 class Map {
@@ -193,8 +23,6 @@ class Map {
     + Map()
     + Map(Row_size: int, Column_size: int)
 }
-
-
 
 class Position {
     - Row: int
@@ -207,50 +35,11 @@ class Position {
     + setColumn(Column: int): void
 }
 
-
-
-class Obstacle {
-    + OccupatePosition(): boolean
+ abstract class  Element { 
+    # name: String
+    # position: Position
+    + Element()
+    + Element(name: String, position: Position)
+    + getPosition(): Position
+    + getName(): string
 }
-
-
-
-interface Skill extends Action {
-    + Activating Skill(Action RankS: Character): Character
-}
-
-
-
-interface Action { }
-
-
-
-interface Attack extends Action {
-    + Attacking(Action Rank: Character): Character
-}
-
-
-
-interface Move extends Action {
-    + Moving(Move Rank: Character): Character
-}
-
-
-class Puzzle {
-    - Question: String
-    - Question Description: String
-    + Puzzle()
-    + Puzzle(parameter, Question: String, Question Description: String, String, Name: Item, Position: Item)
-    + getQuestion(): String
-    + setQuestion(Question: String): void
-    + getQuestionDescription(): String
-    + setQuestionDescription(Question Description: String): void
-    + Make Question(Question: String, Question Description: String): boolean
-}
-
-Map -- Game : Generate
-Position -- Item : Uses
-Game "6..*" -- Item : Uses
-
-
-@enduml
