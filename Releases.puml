@@ -43,3 +43,39 @@ class Position {
     + getPosition(): Position
     + getName(): string
 }
+
+class Bonus extends Element{
+    # BonusDescription: String
+    + Bonus()
+    + Bonus(BonusDescription: String, Position: Element, name: Element)
+    + getBonusDescription(): String
+    + setBonusDescription(BonusDescription: String): void
+    + Repeat action(): void
+    + addHP(): void
+    + Increase damage(): void
+    + Increase movement rank(): void
+    + Increase skill power(): void
+}
+
+class DeadlyDrougth extends Bonus{
+    +DeadlyDrougth()
+    +DeadlyDrougth(BonusDescription: String, Position: Element, name: Element, Health points: Character)
+    +DecreaseHp(Health points: Character): void
+}
+
+class PurifiedWater  extends Bonus{
+     +PurifiedWater()
+     +PurifiedWater(BonusDescription: String, Position: Element, name: Element, Health points: Character)
+     +IncreaseHp(Health points: Character): void
+}
+
+class Fertilizer extends Bonus{
+     +Fertilizer()
+     +Fertilizer(BonusDescription: String, Position: Element, name: Element, damage: Character)
+     +IncreaseDamage(damage: Character): void
+}
+
+class InfestedSoil extends Bonus{
+     +InfestedSoil()
+     +InfestedSoil(BonusDescription: String, Position: Element, name: Element, damage: Character)
+     +DecreaseDamage(damage: Character): void
