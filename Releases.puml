@@ -127,8 +127,54 @@ class Obstacle extends Element{
     + getMoveRank(): int
     + setMoveRank(Move Rank: int): void
 }
-
 abstract class  Hero extends Character {
     + Hero()
     + Hero(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)  
 }
+abstract class Enemy extends Character {
+    + Enemy()
+    + Enemy(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
+}
+class MutantLettuce extends Enemy{
+    - healthRegeneration: int
+    + MutantLettuce()
+    + MutantLettuce(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
+    + regenerateHealth(): void
+    + Attacking(Action Rank: Character): Character
+    + Moving(Move Rank: Character): Character
+    + Activating Skill(Action RankS: Character): Character
+}
+class GiantSlug extends Enemy{
+    + GigantSlug()
+    + GigantSlug(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
+    + slowCharacters(): void
+    + Attacking(Action Rank: Character): Character
+    + Moving(Move Rank: Character): Character
+    + Activating Skill(Action RankS: Character): Character
+}
+class KillerBee extends Enemy{
+    - poisonDamage: int
+    + KillerBee()
+    + KillerBee(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
+    + applyPoison(): void
+    + Attacking(Action Rank: Character): Character
+    + Moving(Move Rank: Character): Character
+    + Activating Skill(Action RankS: Character): Character
+}
+class MoleDigger extends Enemy{
+    + MoleDigger()
+    + MoleDigger(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
+    + dig(): void
+    + Attacking(Action Rank: Character): Character
+    + Moving(Move Rank: Character): Character
+    + Activating Skill(Action RankS: Character): Character
+}
+class ToxicMushroom extends Enemy{
+    + ToxicMushroom()
+    + ToxicMushroom(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
+    + explodeOnDeath(): void
+    + Attacking(Action Rank: Character): Character
+    + Moving(Move Rank: Character): Character
+    + Activating Skill(Action RankS: Character): Character
+}
+
