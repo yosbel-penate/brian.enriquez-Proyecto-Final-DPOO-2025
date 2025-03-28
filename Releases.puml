@@ -7,6 +7,10 @@
 class Game {
     - ElementList: string[]
     - GameStatus: string
+    + Game(CharacterList: string[], GameStatus: string)
+    + getGameStatus(): string
+    + setGameStatus(GameStatus: string): void
+    + getElementList(): string[]
     + StatusCalculation(GameStatus: string): string
     + PlayingCharacterList(): string[]
     + EnemyTurn(CharacterList: string[])
@@ -16,12 +20,19 @@ class Game {
 class Map {
     - Row_size: int
     - Column_size: int
+    + Map()
+    + Map(Row_size: int, Column_size: int)
 }
 
 class Position {
     - Row: int
     - Column: int
-    
+    + Position()
+    + Position(Row: int, Column: int)
+    + getRow(): int
+    + setRow(Row: int): void
+    + getColumn(): int
+    + setColumn(Column: int): void
 }
 
  abstract class  Element { 
@@ -35,10 +46,6 @@ class Position {
 
 class Bonus extends Element{
     # BonusDescription: String
-    + Bonus()
-    + Bonus(BonusDescription: String, Position: Element, name: Element)
-    + getBonusDescription(): String
-    + setBonusDescription(BonusDescription: String): void
     + Repeat action(): void
     + addHP(): void
     + Increase damage(): void
@@ -47,26 +54,18 @@ class Bonus extends Element{
 }
 
 class DeadlyDrougth extends Bonus{
-    +DeadlyDrougth()
-    +DeadlyDrougth(BonusDescription: String, Position: Element, name: Element, Health points: Character)
     +DecreaseHp(Health points: Character): void
 }
 
-class PurifiedWater  extends Bonus{
-     +PurifiedWater()
-     +PurifiedWater(BonusDescription: String, Position: Element, name: Element, Health points: Character)
+class PurifiedWater extends Bonus{
      +IncreaseHp(Health points: Character): void
 }
 
 class Fertilizer extends Bonus{
-     +Fertilizer()
-     +Fertilizer(BonusDescription: String, Position: Element, name: Element, damage: Character)
      +IncreaseDamage(damage: Character): void
 }
 
 class InfestedSoil extends Bonus{
-     +InfestedSoil()
-     +InfestedSoil(BonusDescription: String, Position: Element, name: Element, damage: Character)
      +DecreaseDamage(damage: Character): void
 }
 
@@ -241,12 +240,17 @@ class KillerBee extends Enemy{
     + Activating Skill(Action RankS: Character): Character
 }
 class MoleDigger extends Enemy{
+    + MoleDigger()
+    + MoleDigger(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
     + dig(): void
     + Attacking(Action Rank: Character): Character
     + Moving(Move Rank: Character): Character
     + Activating Skill(Action RankS: Character): Character
 }
-class ToxicMushroom extends Enemy
+class ToxicMushroom extends Enemy{
+    + ToxicMushroom()
+    + ToxicMushroom(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
+    + explodeOnDeath(): void
     + Attacking(Action Rank: Character): Character
     + Moving(Move Rank: Character): Character
     + Activating Skill(Action RankS: Character): Character
