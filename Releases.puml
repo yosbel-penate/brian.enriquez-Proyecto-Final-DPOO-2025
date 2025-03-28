@@ -8,10 +8,6 @@ skinparam linetype ortho
 class Game {
     - ElementList: string[]
     - GameStatus: string
-    + Game(CharacterList: string[], GameStatus: string)
-    + getGameStatus(): string
-    + setGameStatus(GameStatus: string): void
-    + getElementList(): string[]
     + StatusCalculation(GameStatus: string): string
     + PlayingCharacterList(): string[]
     + EnemyTurn(CharacterList: string[])
@@ -28,12 +24,7 @@ class Map {
 class Position {
     - Row: int
     - Column: int
-    + Position()
-    + Position(Row: int, Column: int)
-    + getRow(): int
-    + setRow(Row: int): void
-    + getColumn(): int
-    + setColumn(Column: int): void
+  
 }
 
  abstract class  Element { 
@@ -47,11 +38,6 @@ class Position {
 
 class Bonus extends Element{
     # BonusDescription: String
-    + Repeat action(): void
-    + addHP(): void
-    + Increase damage(): void
-    + Increase movement rank(): void
-    + Increase skill power(): void
 }
 
 class DeadlyDrougth extends Bonus{
@@ -73,9 +59,6 @@ class InfestedSoil extends Bonus{
 class Puzzle extends Element{
     - Question: String
     - Question Description: String
-    + getQuestion(): String
-    + setQuestion(Question: String): void
-    + getQuestionDescription(): String
     + setQuestionDescription(Question Description: String): void
     + Make Question(Question: String, Question Description: String): boolean
 }
