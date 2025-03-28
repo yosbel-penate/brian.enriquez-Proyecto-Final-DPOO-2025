@@ -7,10 +7,6 @@
 class Game {
     - ElementList: string[]
     - GameStatus: string
-    + Game(CharacterList: string[], GameStatus: string)
-    + getGameStatus(): string
-    + setGameStatus(GameStatus: string): void
-    + getElementList(): string[]
     + StatusCalculation(GameStatus: string): string
     + PlayingCharacterList(): string[]
     + EnemyTurn(CharacterList: string[])
@@ -20,19 +16,12 @@ class Game {
 class Map {
     - Row_size: int
     - Column_size: int
-    + Map()
-    + Map(Row_size: int, Column_size: int)
 }
 
 class Position {
     - Row: int
     - Column: int
-    + Position()
-    + Position(Row: int, Column: int)
-    + getRow(): int
-    + setRow(Row: int): void
-    + getColumn(): int
-    + setColumn(Column: int): void
+    
 }
 
  abstract class  Element { 
@@ -252,17 +241,12 @@ class KillerBee extends Enemy{
     + Activating Skill(Action RankS: Character): Character
 }
 class MoleDigger extends Enemy{
-    + MoleDigger()
-    + MoleDigger(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
     + dig(): void
     + Attacking(Action Rank: Character): Character
     + Moving(Move Rank: Character): Character
     + Activating Skill(Action RankS: Character): Character
 }
-class ToxicMushroom extends Enemy{
-    + ToxicMushroom()
-    + ToxicMushroom(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
-    + explodeOnDeath(): void
+class ToxicMushroom extends Enemy
     + Attacking(Action Rank: Character): Character
     + Moving(Move Rank: Character): Character
     + Activating Skill(Action RankS: Character): Character
