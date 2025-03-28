@@ -121,95 +121,25 @@ abstract class  Hero extends Character {
     + moving(Move Rank: Character): Character
     + activating Skill(Action RankS: Character): Character  
 }
-class LanceLettuce extends Hero {
-    + LanceLettuce()
-    + LanceLettuce(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
-    + pushEnemies(): void
-    + Attacking(Action Rank: Character): Character
-    + Moving(Move Rank: Character): Character
-    + Activating Skill(Action RankS: Character): Character
-}
-class CarrotShooter extends Hero{
-    + CarrotShooter()
-    + CarrotShooter(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)                                                     
-    + Attacking(Action Rank: Character): Character
-    + Moving(Move Rank: Character): Character
-    + Activating Skill(Action RankS: Character): Character
-    + shootCarrotArrows(): void
-
-}
-class BomberTomato extends Hero{
+class LanceLettuce extends Hero {}
+class CarrotShooter extends Hero {}
+class BomberTomato extends Hero {
     - selfDamage: int
-    + BomberTomato()
-    + BomberTomato(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
-    + Attacking(Action Rank: Character): Character
-    + Moving(Move Rank: Character): Character
-    + Activating Skill(Action RankS: Character): Character
-    + acidExplosion(): void
-
 }
-class CucumberShadow extends Hero{
-    + CucumberShadow()
-    + CucumberShadow(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
-    + moveStealthily(): void
-    + Attacking(Action Rank: Character): Character
-    + Moving(Move Rank: Character): Character
-    + Activating Skill(Action RankS: Character): Character
-    + moveStealthily(): void
-
-}
-class BroccoliSage extends Hero{
-    + BroccoliSage()
-    + BroccoliSage(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
-    + healAllies(): void
-    + Attacking(Action Rank: Character): Character
-    + Moving(Move Rank: Character): Character
-    + Activating Skill(Action RankS: Character): Character
-}
-class PumpkinShield extends Hero{
-    - DamageAbsortion:int
-    + PumpkinShield()
-    + PumpkinShield(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
-    + ShieldDefense(): void
-    + Attacking(Action Rank: Character): Character
-    + Moving(Move Rank: Character): Character
-    + Activating Skill(Action RankS: Character): Character
-}
-class BerserkSpinach extends Hero{
-    - AugmentDamage: int
-    + BerserkSpinach()
-    + BerserkSpinach(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
-    + FrenzyHit(): void
-    + Attacking(Action Rank: Character): Character
-    + Moving(Move Rank: Character): Character
-    + Activating Skill(Action RankS: Character): Character
+class CucumberShadow extends Hero {}
+class BroccoliSage extends Hero {}
+class PumpkinShield extends Hero {}
+class BerserkSpinach extends Hero {
+- AugmentDamage: int
 }
 class RadishSprinter extends Hero{
     - MoveDouble: int
-    + RadishSprinter()
-    + RadishSprinter(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
-    + MoveFast(): void
-    + Attacking(Action Rank: Character): Character
-    + Moving(Move Rank: Character): Character
-    + Activating Skill(Action RankS: Character): Character
 }
 class GarlickWarlock extends Hero{
     - poisoning: int
-    + GarlickWarlock()
-    + GarlickWarlock(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
-    + PoisonousGas(): void
-    + Attacking(Action Rank: Character): Character
-    + Moving(Move Rank: Character): Character
-    + Activating Skill(Action RankS: Character): Character
 }
 class CornSniper extends Hero{
     - CriticalAttack: int
-    + CornSniper()
-    + LanceLettuce(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
-    + GrainShot(): void
-    + Attacking(Action Rank: Character): Character
-    + Moving(Move Rank: Character): Character
-    + Activating Skill(Action RankS: Character): Character
 }
 abstract class Enemy extends Character {
     + attacking(Action Rank: Character): Character
