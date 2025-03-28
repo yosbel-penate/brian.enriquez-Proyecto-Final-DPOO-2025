@@ -4,6 +4,7 @@
 //aunque esta puede cambiar durante el desarrollo, no se preveen grandes cambios
 
 @startuml
+skinparam linetype ortho
 class Game {
     - ElementList: string[]
     - GameStatus: string
@@ -38,10 +39,10 @@ class Position {
  abstract class  Element { 
     # name: String
     # position: Position
-    + Element()
-    + Element(name: String, position: Position)
-    + getPosition(): Position
-    + getName(): string
+    # symbol: char 
+    # description: String
+    # visibility: boolean
+    # id: String
 }
 
 class Bonus extends Element{
@@ -116,8 +117,9 @@ class Obstacle extends Element{
     + setMoveRank(Move Rank: int): void
 }
 abstract class  Hero extends Character {
-    + Hero()
-    + Hero(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)  
+    + attacking(Action Rank: Character): Character
+    + moving(Move Rank: Character): Character
+    + activating Skill(Action RankS: Character): Character  
 }
 class LanceLettuce extends Hero {
     + LanceLettuce()
@@ -210,8 +212,9 @@ class CornSniper extends Hero{
     + Activating Skill(Action RankS: Character): Character
 }
 abstract class Enemy extends Character {
-    + Enemy()
-    + Enemy(Health points: int, damage: int, resistance: int, Action Rank: int, damageS: int, damageC: float, Name: String, Action RankS: int, Move Rank: int)
+    + attacking(Action Rank: Character): Character
+    + moving(Move Rank: Character): Character
+    + activating Skill(Action RankS: Character): Character
 }
 class MutantLettuce extends Enemy{
     - healthRegeneration: int 
@@ -245,4 +248,7 @@ class ToxicMushroom extends Enemy{
     + Moving(Move Rank: Character): Character
     + Activating Skill(Action RankS: Character): Character
 }
+Game *-- "1...1"Map : Contains
+Position *--"1...1" Element : Uses
+Game *--"6...*"  Element : Uses
 
