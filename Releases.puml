@@ -83,7 +83,7 @@ abstract class  Hero extends Character {
     + moving(Move Rank: Character): Character
     + activating Skill(Action RankS: Character): Character  
 }
-class LanceLettuce extenteds Hero {
+class LanceLettuce extends Hero {
     + pushEnemies(): void
 }
 class CarrotShooter extends Hero {
