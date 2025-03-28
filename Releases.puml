@@ -100,25 +100,41 @@ abstract class  Hero extends Character {
     + moving(Move Rank: Character): Character
     + activating Skill(Action RankS: Character): Character  
 }
-class LanceLettuce extends Hero {}
-class CarrotShooter extends Hero {}
+class LanceLettuce extenteds Hero {
+    + pushEnemies(): void
+}
+class CarrotShooter extends Hero {
+    + shootCarrotArrows(): void
+}
 class BomberTomato extends Hero {
     - selfDamage: int
+    + acidExplosion(): void
 }
-class CucumberShadow extends Hero {}
-class BroccoliSage extends Hero {}
-class PumpkinShield extends Hero {}
+class CucumberShadow extends Hero {
+    + moveStealthily(): void
+}
+class BroccoliSage extends Hero {
+    + healAllies(): void
+}
+class PumpkinShield extends Hero {
+    - DamageAbsortion:int
+    + ShieldDefense(): void
+}
 class BerserkSpinach extends Hero {
-- AugmentDamage: int
+    - AugmentDamage: int
+    + FrenzyHit(): void
 }
 class RadishSprinter extends Hero{
     - MoveDouble: int
+    + MoveFast(): void
 }
 class GarlickWarlock extends Hero{
     - poisoning: int
+    + PoisonousGas(): void
 }
 class CornSniper extends Hero{
     - CriticalAttack: int
+    + GrainShot(): void
 }
 abstract class Enemy extends Character {
     + attacking(Action Rank: Character): Character
