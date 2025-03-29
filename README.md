@@ -88,3 +88,21 @@ LechugasDelCaos/
 - ``build.gradle``: Configuración de gradle.
 - ``README.md``: Descripción del proyecto.
 - ``.gitignore``: Archivos a excluir en Git.
+
+                          Requisitos:
+Requisitos del sistema:
+Java JDK 11 o superior
+SO: Windows
+Memoria RAM :2GB
+Procesador Intel Celeron D 351
+                      Diseño del Juego:
+Advertencia: Esta es una versión inicial del juego y como versión inicial al fin, entiéndase que este apartado puede cambiar radicalmente durante el desarrollo del proyecto.
+El juego contará con 4 clases principales, las cuales serán:
+•	Clase Game: será la principal clase controladora y se encargará de controlar todos los datos del software.
+•	Clase Map: será la encargada de guardar y generar todos los datos de los mapas o niveles.
+•	Clase Element: Esta se encargará de la modelación de varios aspectos indispensables para el juego, tales como: potenciadores, obstáculos, los puzles o los personajes.
+•	Clase Generadora: esta clase esta pensada para ser la encargada de generar todos los objetos de las clases anteriores, principalmente los de la clase Element.
+La herencia y el polimorfismo se harán presentes sobre todo en la clase Element, ya que esta heredará de clases inferiores varios objetos, métodos y atributos que serán necesarios para el funcionamiento del software, los polimorfismos aún no han sido decididos.
+Habrán relaciones entre clases de menor nivel por ejemplo:
+La clase Position tendrá una relación de composición con la clase Element.
+
