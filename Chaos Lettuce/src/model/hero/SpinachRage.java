@@ -1,3 +1,4 @@
+
 package model.hero;
 
 
@@ -105,3 +106,7 @@ private int increasingdamageS=15;
         this.damage = this.damageS;
         this.damageS =tmp;
         this.setDamageS(this.getDamageS()+5);
+        this.setDamage(this.getDamage()+5);
+        return null;
+    }
+}
