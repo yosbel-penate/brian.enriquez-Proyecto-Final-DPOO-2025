@@ -4,5 +4,5 @@ import model.Position;
 import util.ListArray;
 
 public interface IMove {
-    Character Moving(ListArray<Position> var1, Position var2);
+    Character Moving(ListArray<Position> movs, Position posPuzle);
 }
