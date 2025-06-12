@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 
+import model.Element;
 import model.Position;
 import util.ListArray;
 
@@ -91,11 +92,10 @@ public class CornSniper extends Hero {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    //@Override
-    public Character Attacking() {
+    @Override
+    public Position Attacking(ListArray<Position> posibleCellAction, ListArray<Element> enemys) {
         return null;
     }
-
     //@Override
     public Character Moving(ListArray<Position> movs, Position posPuzle) {
         return null;
@@ -103,6 +103,9 @@ public class CornSniper extends Hero {
 
     //@Override
     public Character ActivatinSkill() {
+        int tmp = this.damage;
+        this.damage = this.damageS;
+        this.damageS =tmp;
         return null;
     }
 }
