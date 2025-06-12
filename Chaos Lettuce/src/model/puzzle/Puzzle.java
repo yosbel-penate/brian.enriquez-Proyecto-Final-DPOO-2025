@@ -10,6 +10,7 @@ import model.Position;
 
 public class Puzzle extends Element{
     protected String question;
+    protected boolean resolved;
     protected String questionDescription;
     public Puzzle(String name, Position position, String symbol, String description, boolean visibility, String id,String question, String questionDescription) {
         super(name, position, symbol, description, visibility, id);
@@ -20,6 +21,7 @@ public class Puzzle extends Element{
     public Puzzle() {
         super();
         question=null;
+        resolved=false;
     }
 
     public void setParametersInitialDefault() {
@@ -47,9 +49,13 @@ public class Puzzle extends Element{
     public void setQuestionDescription(String questionDescription) {
         this.questionDescription = questionDescription;
     }
-   
-    
-    
-    
-    
+
+
+    public boolean isResolved() {
+        return resolved;
+    }
+
+    public void setResolved(boolean resolved) {
+        this.resolved = resolved;
+    }
 }
