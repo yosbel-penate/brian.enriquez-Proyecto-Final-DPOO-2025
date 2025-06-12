@@ -1,6 +1,6 @@
 package controller;
 
 public enum GameStatus {
-	EJECT, UNKWON
+	EJECT, UNKWON, WIN_HERO,WIN_ENEMY,
 
 }
