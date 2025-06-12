@@ -108,7 +108,9 @@ public abstract class CHaracter extends Element implements IAttack, IMove, ISkil
         this.moveRank = moveRank;
     }
 
-
+    public String getSkillname() {
+        return skillname;
+    }
 
     public void attacking(CHaracter target){
 
@@ -135,11 +137,15 @@ int newHealth = target.getHealthPoints() - realDamage;
 }
 
 
+
     public abstract void setParametersInitialDefault();
+    @Override
+    public Character DeactivateSkill() {
+        int tmp = this.damage;
+        this.damage = this.damageS;
+        this.damageS =tmp;
+        return null;
+    }
 }
-
-    
-
-
 
 
