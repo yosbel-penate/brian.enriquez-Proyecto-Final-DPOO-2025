@@ -26,11 +26,10 @@
 
 ## Tareas
 
-- ``Ronald``: Creación de los personajes y todo lo relacionado a ellos.
-- ``Christopher``: Creación de los enemigos, peligos y todo lo relacionado a ellos.
-- ``Guillermo``: Creación de los mundos con sus mapas y acertijos.
-- ``Brian``: Creación de toda la UI de los menúes.
-- ``Dasiel``: Creación de los sprites y las animaciones.
+
+- ``Guillermo``: Creación de los bonos y su implementación y lops puzzles.
+- ``Brian``: Diseño y creación de héroes, y elementos útiles para el desarrollo
+- ``Dasiel``: Creación de los sprites, los enemigos y las clases visuales.
 
 ## Clases
 
