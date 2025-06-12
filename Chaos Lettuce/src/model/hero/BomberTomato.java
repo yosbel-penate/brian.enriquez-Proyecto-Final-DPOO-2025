@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import model.Element;
 import model.Position;
 import util.ListArray;
 
@@ -90,8 +91,8 @@ private double selfdamage=0.10;
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    //@Override
-    public Character Attacking() {
+    @Override
+    public Position Attacking(ListArray<Position> posibleCellAction, ListArray<Element> enemys) {
         return null;
     }
 
@@ -102,6 +103,11 @@ private double selfdamage=0.10;
 
     //@Override
     public Character ActivatinSkill() {
+        int tmp = this.damage;
+        this.damage = this.damageS;
+        this.damageS =tmp;
+        this.healthPoints-=healthPoints*selfdamage;
         return null;
     }
 }
+
