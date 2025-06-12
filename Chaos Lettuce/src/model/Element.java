@@ -1,3 +1,4 @@
+
 package model;
 
 import java.awt.image.BufferedImage;
@@ -106,3 +107,4 @@ public abstract class Element {
 
     public abstract void setParametersInitialDefault();
 }
+
