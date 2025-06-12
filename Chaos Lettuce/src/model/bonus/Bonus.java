@@ -1,6 +1,7 @@
 
 package model.bonus;
 
+import model.CHaracter;
 import model.Element;
 import model.Position;
 
@@ -28,5 +29,7 @@ public abstract class Bonus extends Element{
     }
 
     public abstract void setParametersInitialDefault();
+
+   public abstract void applyBonus (CHaracter X);
 }
 
