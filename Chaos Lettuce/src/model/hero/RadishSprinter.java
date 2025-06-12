@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import model.Element;
 import model.Position;
 import util.ListArray;
 
@@ -35,7 +36,7 @@ public class RadishSprinter extends Hero {
     @Override
     public void setParametersInitialDefault() {
     	try {
- 			this.symbol=ImageIO.read(getClass().getResource("/resource/heros/loca.png"));
+ 			this.symbol=ImageIO.read(getClass().getResource("/resource/heros/radish_sprint.png"));
  		} catch (IOException e) {
  			// TODO Auto-generated catch block
  			e.printStackTrace();
@@ -91,18 +92,27 @@ public class RadishSprinter extends Hero {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public Character Attacking() {
-        return null;
-    }
+
 
     @Override
     public Character Moving(ListArray<Position> movs, Position posPuzle) {
         return null;
     }
 
-    @Override
     public Character ActivatinSkill() {
+        int tmp = this.damage;
+        this.damage = this.damageS;
+        this.damageS =tmp;
+        this.moveRank=this.getMoveRank();
+        if(moveRank==6){
+            this.setMoveRank(moveRank+2);
+        }
+        return null;
+    }
+
+    @Override
+    public Position Attacking(ListArray<Position> posibleCellAction, ListArray<Element> enemys) {
         return null;
     }
 }
+
