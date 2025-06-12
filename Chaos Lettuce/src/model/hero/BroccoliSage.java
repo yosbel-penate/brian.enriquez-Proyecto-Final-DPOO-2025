@@ -2,9 +2,12 @@ package model.hero;
 
 
 import java.io.IOException;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 
+import model.CHaracter;
+import model.Element;
 import model.Position;
 import util.ListArray;
 
@@ -93,10 +96,9 @@ public class BroccoliSage extends Hero {
     }
 
     @Override
-    public Character Attacking() {
+    public Position Attacking(ListArray<Position> posibleCellAction, ListArray<Element> enemys) {
         return null;
     }
-
     @Override
     public Character Moving(ListArray<Position> movs, Position posPuzle) {
         return null;
@@ -104,6 +106,34 @@ public class BroccoliSage extends Hero {
 
     @Override
     public Character ActivatinSkill() {
+        int tmp = this.damage;
+        this.damage = this.damageS;
+        this.damageS =tmp;
+//        Random rand=new Random();
+//        int random=rand.nextInt(10);
+//
+//            int realDamage=this.damageS-target.getResistence();
+//            if(realDamage<0){
+//                realDamage=0;
+//            }
+//            else if(random==0){
+//                realDamage=0;
+//                System.out.println("¡Fallaste!");
+//            }
+//            else if(random==2||random==3){
+//                realDamage=realDamage+10;
+//                System.out.println("¡Golpe Crítico!");
+//            }
+//            else{
+//                realDamage=realDamage;
+//            }
+//            int newHealth = target.getHealthPoints() - realDamage;
+//            if (newHealth < 0) {
+//                newHealth = 0;
+//            }
+
         return null;
     }
+
+
 }
