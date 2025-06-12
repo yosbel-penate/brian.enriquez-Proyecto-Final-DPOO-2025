@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 
+import model.Element;
 import model.Position;
 import util.ListArray;
 
@@ -92,10 +93,9 @@ public class CucumberShadow extends Hero {
     }
 
     @Override
-    public Character Attacking() {
+    public Position Attacking(ListArray<Position> posibleCellAction, ListArray<Element> enemys) {
         return null;
     }
-
     @Override
     public Character Moving(ListArray<Position> movs, Position posPuzle) {
         return null;
@@ -103,6 +103,10 @@ public class CucumberShadow extends Hero {
 
     @Override
     public Character ActivatinSkill() {
+        int tmp = this.damage;
+        this.damage = this.damageS;
+        this.damageS =tmp;
         return null;
     }
 }
+
