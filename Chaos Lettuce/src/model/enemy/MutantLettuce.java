@@ -1,6 +1,8 @@
 package model.enemy;
 
 import exception.EmptyListException;
+import model.CHaracter;
+import model.Element;
 import model.Position;
 import util.ListArray;
 
@@ -67,8 +69,34 @@ public class MutantLettuce extends Enemy {
     }
 
     @Override
-    public Character Attacking() {
-        return null;
+    public Position Attacking(ListArray<Position> posibleCellAction, ListArray<Element> heros) {
+        Position pos = null;
+        boolean attack=false;
+        for(int i=0;i<posibleCellAction.length() && !attack;i++){
+            try {
+                Position pos1=posibleCellAction.get(i);
+                for(int j=0;j<heros.length() && !attack;j++){
+                    Element e = heros.get(j);
+                    if(e.getPosition().equals(pos1)){
+                        if (e instanceof CHaracter) {
+                            CHaracter ch=(CHaracter) e;
+                            this.attacking(ch);
+                            attack=true;
+                        }
+
+                    }
+                }
+            } catch (EmptyListException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+        if(!attack){
+            pos=new Position();
+
+        }
+        return pos;
+
     }
 
     @Override
