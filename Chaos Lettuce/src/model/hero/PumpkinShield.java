@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import model.Element;
 import model.Position;
 import util.ListArray;
 
@@ -89,7 +90,7 @@ public class PumpkinShield extends Hero {
     }
 
     @Override
-    public Character Attacking() {
+    public Position Attacking(ListArray<Position> posibleCellAction, ListArray<Element> enemys) {
         return null;
     }
 
@@ -98,7 +99,17 @@ public class PumpkinShield extends Hero {
         return null;
     }
 
-    @Override
+    public Character ActivatinSkill() {
+        int tmp = this.damage;
+        this.damage = this.damageS;
+        this.damageS =tmp;
+        this.resistence=this.getResistence();
+        this.setResistence(resistence+2);
+        return null;
+
+    }
+}
+
     public Character ActivatinSkill() {
         return null;
     }
