@@ -12,9 +12,6 @@
 - [**Estructura**](#estructura)
 
 ## Integrantes
-
-- **Ronald Sardiñas González**
-- **Christopher Lázaro Sablón Suárez**
 - **Guillermo León Rodríguez**
 - **Brian Ramírez Enríquez**
 - **Dassiel Ernesto Quintero Rubido**
@@ -46,13 +43,7 @@
 - ``MainMenu``: Crea el menu de inicio del juego que permite elegir el nivel e iniciar el juego.
 
 ## Tecnologías y Librerías
-
-- ``JavaFX``: Librería de Java para crear interfaces gráficas.
-- ``SceneBuilder``: Programa que permite crear interfaces de JavaFX arrastrando y soltando elementos.
-- ``Gradle``: Herramienta de Java que permite construir el proyecto para su distribución.
-- ``VS Code``: IDE multipropósito que permite programar de manera esficiente en Java.
-- ``Gimp``: Software Open Source que permite la edición y creación de imágenes, en este caso, sprites.
-
+java swing
 ## Funciones
 
 - Movimiento en 4 direcciones (arriba, abajo, derecha e izquierda).
