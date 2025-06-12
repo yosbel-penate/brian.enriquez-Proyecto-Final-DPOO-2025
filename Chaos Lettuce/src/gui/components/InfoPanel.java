@@ -17,7 +17,9 @@ public class InfoPanel extends JPanel {
     private int score = 0;
     private int level = 1;
 	private JPanel panelBotones;
-	private JButton btnMove;
+    private JPanel panelResetAction;
+    private JButton btnResetAction;
+    private JButton btnMove;
 	private JButton btnSkill;
 	private JButton btnAttack;
 	private JPanel playerPanel;
@@ -26,7 +28,8 @@ public class InfoPanel extends JPanel {
 	private JLabel lblLifePlayer;
 	private JLabel lblDescriptionPlayer;
 	private JLabel lblTurnPlayer;
-    
+    private JLabel  lblAttackPlayer;
+    private JLabel  lblSkillPlayer;
     public InfoPanel() {
         setBackground(new Color(240, 240, 240));
         setLayout(new BorderLayout());
@@ -65,14 +68,20 @@ public class InfoPanel extends JPanel {
         // Crear etiquetas
         lblNamePlayer = createLabel("Lechugas del Caos", Font.BOLD, 16, new Color(0, 100, 0));
         lblLifePlayer = createLabel("El Jardín de los Enigmas", Font.BOLD, 14, Color.BLUE);
+        lblAttackPlayer = createLabel("El Jardín de los Enigmas", Font.BOLD, 14, Color.BLUE);
         lblTurnPlayer = createLabel("El Jardín de los Enigmas", Font.BOLD, 12, Color.BLACK);
-        
-        
+        lblSkillPlayer = createLabel("El Jardín de los Enigmas", Font.BOLD, 14, Color.BLUE);
+
+
         // Añadir etiquetas con espacios
         etiquetasPanel.add(Box.createVerticalStrut(2));
         etiquetasPanel.add(lblNamePlayer);
         etiquetasPanel.add(Box.createVerticalStrut(2));
         etiquetasPanel.add(lblLifePlayer);
+        etiquetasPanel.add(Box.createVerticalStrut(2));
+        etiquetasPanel.add(lblAttackPlayer);
+        etiquetasPanel.add(Box.createVerticalStrut(2));
+        etiquetasPanel.add(lblSkillPlayer);
         etiquetasPanel.add(Box.createVerticalStrut(2));
         etiquetasPanel.add(lblTurnPlayer);
         // Para centrar verticalmente
@@ -93,7 +102,13 @@ public class InfoPanel extends JPanel {
         btnMove = createButton("Mover", new Color(0, 120, 215));
         btnSkill = createButton("Habilidad", new Color(255, 204, 0));
         btnAttack = createButton("Atacar", new Color(220, 60, 50));
-        
+
+        panelResetAction = new JPanel();
+        panelResetAction.setLayout(new GridLayout(1, 3, 10, 0)); // 1 fila, 3 columnas, espacio horizontal 10px
+        panelResetAction.setMaximumSize(new Dimension(380, 24));
+        panelResetAction.setMinimumSize(new Dimension(380, 24));
+        btnResetAction = createButton("Cambiar accion", new Color(127, 127, 127));
+
         Game game = Game.getInstance(Game.class);
         
         btnMove.addActionListener(e ->{
@@ -107,21 +122,31 @@ public class InfoPanel extends JPanel {
         btnSkill.addActionListener(e ->{
         	game.setCurrentAction(ActionPlayer.SKILL);
         });
+
+        btnResetAction.addActionListener(e ->{
+            game.setCurrentAction(ActionPlayer.UNKWON);
+            btnResetAction.setVisible(false);
+            panelResetAction.setVisible(false);
+        });
         
         // Añadir botones al panel
         panelBotones.add(btnMove);
         panelBotones.add(btnSkill);
         panelBotones.add(btnAttack);
         panelBotones.setVisible(false);
+        panelResetAction.add(btnResetAction);
+        panelResetAction.setVisible(false);
         btnAttack.setVisible(false);
         btnMove.setVisible(false);
         btnSkill.setVisible(false);
+        btnResetAction.setVisible(false);
         
         // Añadir márgenes alrededor del panel
         panelBotones.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         
         infoContent.add(playerPanel);
         infoContent.add(panelBotones);
+        infoContent.add(panelResetAction);
         infoContent.add(Box.createVerticalGlue());
         
         add(infoContent, BorderLayout.CENTER);
@@ -223,15 +248,15 @@ public class InfoPanel extends JPanel {
     }
     
     private void showCredits() {
-        JOptionPane.showMessageDialog(this.getParent(), 
-            "Desarrollado por:\nTu Nombre\nVersión 1.0", 
+        JOptionPane.showMessageDialog(this.getParent(),
+            "Desarrollado por:\nBrian Ramirez,Dassiel Quintero,Guillermo León\nVersión 1.0",
             "Créditos", 
             JOptionPane.INFORMATION_MESSAGE);
     }
     
     private void showHelp() {
         JOptionPane.showMessageDialog(this.getParent(), 
-            "Ayuda del juego:\n\n1. Usa las flechas para moverte.\n2. Presiona Espacio para acciones.", 
+            "Ayuda del juego:\n\n1. Has click encima de el héroe en turno\n2 Selecciona la accion deseada en el panel lateral y ejecutala.",
             "Ayuda", 
             JOptionPane.QUESTION_MESSAGE);
     }
@@ -254,31 +279,51 @@ public class InfoPanel extends JPanel {
             btnAttack.setVisible(true);
             btnMove.setVisible(true);
             btnSkill.setVisible(true);
+            btnResetAction.setVisible(false);
+            panelResetAction.setVisible(false);
         }else {
         	panelBotones.setVisible(false);
             btnAttack.setVisible(false);
             btnMove.setVisible(false);
             btnSkill.setVisible(false);
         }
-        Element player = game.getHeros().get(0);
-        if(player != null) {
-        	CHaracter ch = (CHaracter) player;
-        	lblLifePlayer.setText("Vida: "+ch.getHealthPoints());
-        	lblNamePlayer.setText("Nombre: "+ch.getName());
-        	lblTurnPlayer.setText("Turno: "+game.getTurn());
-        	
-        	int anchoDeseado = ch.getSymbol().getWidth();
-            int altoDeseado = ch.getSymbol().getHeight();
-            
-            Image imagenEscalada = ch.getSymbol().getScaledInstance(
-                80, 
-                80, 
-                Image.SCALE_SMOOTH
-            );
-            
-            // Crear un nuevo ImageIcon con la imagen
-            lblImagenPlayer.setIcon(new ImageIcon(imagenEscalada));
+
+        if(game.getCurrentAction() != ActionPlayer.UNKWON && game.isCurrentPlayer()){
+            btnResetAction.setVisible(true);
+            panelResetAction.setVisible(true);
         }
+
+        if(game.getCurrentAction() == ActionPlayer.UNKWON || !game.isCurrentPlayer()){
+            btnResetAction.setVisible(false);
+            panelResetAction.setVisible(false);
+        }
+
+        if(game.getHeros().length()>0){
+            Element player = game.getHeros().get(0);
+            if(player != null) {
+                CHaracter ch = (CHaracter) player;
+                lblLifePlayer.setText("Vida: "+ch.getHealthPoints());
+                lblNamePlayer.setText("Nombre: "+ch.getName());
+                lblTurnPlayer.setText("Turno: "+game.getTurn());
+                lblAttackPlayer.setText("Ataque: " + ch.getDamage());
+                lblSkillPlayer.setText("Habilidad: " +ch.getSkillname() +" "+ ch.getDamageS());
+                int anchoDeseado = ch.getSymbol().getWidth();
+                int altoDeseado = ch.getSymbol().getHeight();
+
+                Image imagenEscalada = ch.getSymbol().getScaledInstance(
+                        80,
+                        80,
+                        Image.SCALE_SMOOTH
+                );
+
+                // Crear un nuevo ImageIcon con la imagen
+                lblImagenPlayer.setIcon(new ImageIcon(imagenEscalada));
+            }
+        }
+        else{
+            playerPanel.setVisible(false);
+        }
+
         
     }
     
