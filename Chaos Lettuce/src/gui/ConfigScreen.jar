@@ -296,3 +296,102 @@ public class ConfigScreen extends JFrame {
         
         dispose();
     }
+    
+    // Clase para representar los personajes de SuperTuxKart
+    public static class STKCharacter {
+        private String name;
+        private String imagePath;
+        private String description;
+        private String speed;
+        private String acceleration;
+        private String handling;
+        
+        public STKCharacter(String name, String imagePath, String description, 
+                          String speed, String acceleration, String handling) {
+            this.name = name;
+            this.imagePath = imagePath;
+            this.description = description;
+            this.speed = speed;
+            this.acceleration = acceleration;
+            this.handling = handling;
+        }
+        
+        // Getters
+        public String getName() { return name; }
+        public String getImagePath() { return imagePath; }
+        public String getDescription() { return description; }
+        public String getSpeed() { return speed; }
+        public String getAcceleration() { return acceleration; }
+        public String getHandling() { return handling; }
+        
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) return true;
+            if (obj == null || getClass() != obj.getClass()) return false;
+            STKCharacter that = (STKCharacter) obj;
+            return name.equals(that.name);
+        }
+        
+        @Override
+        public int hashCode() {
+            return name.hashCode();
+        }
+    }
+    
+    // Clase para diseño de wrap mejorado
+    private static class WrapLayout extends FlowLayout {
+        public WrapLayout(int align, int hgap, int vgap) {
+            super(align, hgap, vgap);
+        }
+        
+        @Override
+        public Dimension preferredLayoutSize(Container target) {
+            return layoutSize(target, true);
+        }
+        
+        @Override
+        public Dimension minimumLayoutSize(Container target) {
+            return layoutSize(target, false);
+        }
+        
+        private Dimension layoutSize(Container target, boolean preferred) {
+            synchronized (target.getTreeLock()) {
+                int targetWidth = target.getSize().width;
+                if (targetWidth == 0) targetWidth = Integer.MAX_VALUE;
+                
+                int hgap = getHgap();
+                int vgap = getVgap();
+                Insets insets = target.getInsets();
+                int maxWidth = targetWidth - (insets.left + insets.right + hgap * 2);
+                
+                Dimension dim = new Dimension(0, 0);
+                int rowWidth = 0;
+                int rowHeight = 0;
+                
+                for (Component comp : target.getComponents()) {
+                    if (comp.isVisible()) {
+                        Dimension d = preferred ? comp.getPreferredSize() : comp.getMinimumSize();
+                        
+                        if (rowWidth + d.width > maxWidth) {
+                            dim.width = Math.max(dim.width, rowWidth);
+                            dim.height += rowHeight + vgap;
+                            rowWidth = 0;
+                            rowHeight = 0;
+                        }
+                        
+                        rowWidth += d.width + hgap;
+                        rowHeight = Math.max(rowHeight, d.height);
+                    }
+                }
+                
+                dim.width = Math.max(dim.width, rowWidth);
+                dim.height += rowHeight + vgap;
+                
+                dim.width += insets.left + insets.right + hgap * 2;
+                dim.height += insets.top + insets.bottom + vgap * 2;
+                
+                return dim;
+            }
+        }
+    }
+}
