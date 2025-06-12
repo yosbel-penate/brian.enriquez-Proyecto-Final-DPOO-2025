@@ -81,7 +81,7 @@ public class GamePanel extends JPanel {
 		// Calcular fila y columna basado en la posición del click
 		x -= xOffset;
 		y -= yOffset;
-		System.out.println("Posicion:" + x + " " + y);
+		//System.out.println("Posicion:" + x + " " + y);
 		if (x > 0 && y > 0) {
 			if (cellSize > 0) {
 				selectedCol = x / cellSize;
@@ -96,8 +96,8 @@ public class GamePanel extends JPanel {
 				// Mostrar en consola la selección
 				if (selectedRow != -1 && selectedCol != -1) {
 					Game.getInstance(Game.class).selectPos(new Position(selectedRow, selectedCol));
-					System.out.println(
-							"Celda seleccionada: Fila " + (selectedRow + 1) + ", Columna " + (selectedCol + 1));
+				//	System.out.println(
+						//	"Celda seleccionada: Fila " + (selectedRow + 1) + ", Columna " + (selectedCol + 1));
 				}
 			}
 		}
@@ -173,10 +173,10 @@ public class GamePanel extends JPanel {
 			actionImage = this.moveImage;
 		else if (action == ActionPlayer.SKILL)
 			actionImage = this.skillImage;
-		System.out.println("Immage action:" + actionImage);
-		System.out.println("Movimientos:" + positions.length());
+//		System.out.println("Immage action:" + actionImage);
+//		System.out.println("Movimientos:" + positions.length());
 		if (actionImage != null) {
-			System.out.println("Immage action:" + actionImage);
+		//	System.out.println("Immage action:" + actionImage);
 			for (Position p : positions) {
 				int x = xOffset + p.getColumn() * cellSize;
 				int y = yOffset + p.getRow() * cellSize;
