@@ -6,6 +6,6 @@
  */
 
 
-module Chaos Lettuce {
+module ChaosLettuce {
 	requires java.desktop;  // Para Swing
 }
